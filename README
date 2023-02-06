@@ -1,0 +1,21 @@
+Staring the application:
+1. Create a virtual environment
+2. `pip install -r requirements.txt`
+3. `python3 run.py`
+
+
+Supports below endpoints:
+1. `GET localhost:5000/health_check`
+2. `POST localhost:5000/signup`
+3. `PUT localhost:5000/update`
+4. `DELETE localhost:5000/delete`
+5. `POST localhost:5000/login`
+6. `POST localhost:5000/logout`
+6. `POST localhost:5000/credit`
+7. `POST localhost:5000/debit`
+8. `POST localhost:5000/refresh`
+
+
+For API documentation, refer `http://localhost:5000/docs`
+   
+   

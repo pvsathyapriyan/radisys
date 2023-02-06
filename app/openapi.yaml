@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+servers:
+  - url: /
+paths:
+  /login:
+    post:
+      description: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+        401:
+          description: Invalid username or password
+  /refresh:
+    post:
+      description: Refresh access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+      responses:
+        200:
+          description: Successful refresh
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  access_token:
+                    type: string
+        401:
+          description: Invalid refresh token
+  /signup:
+    post:
+      description: Sign up
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                pan:
+                  type: string
+                address:
+                  type: string
+                contact:
+                  type: string
+                sex:
+                  type: string
+                nationality:
+                  type: string
+                location:
+                  type: string
+      responses:
+        200:
+          description: Successful sign up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        400:
+          description: Duplicate username
+  /update:
+    put:
+      description: Update user information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                username:
+                  type: string
+                password:
+                  type: string
+                pan:
+                  type: string
+                address:
+                  type: string
+                contact:
+                  type: string
+                sex:
+                  type: string
+                nationality:
+                  type: string
+                location:
+                  type: string
+      responses:
+        200:
+          description: Successful update
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        401:
+          description: Invalid token
+        400:
+          description: Non-existent username
